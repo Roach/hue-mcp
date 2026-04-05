@@ -215,12 +215,12 @@
       border: 2px solid var(--bg);
       animation: dot-pulse 1.2s ease-in-out infinite;
     }
-    .tl-cyan    > .timeline-item::before { background: var(--cyan); }
-    .tl-magenta > .timeline-item::before { background: var(--magenta); }
-    .tl-cyan2   > .timeline-item::before { background: var(--cyan); }
-    .tl-green   > .timeline-item::before { background: var(--green); }
-    .tl-red     > .timeline-item::before { background: var(--red); }
-    .tl-warm    > .timeline-item::before { background: var(--amber); }
+    .tl-cyan    > .timeline-item::before { background: var(--cyan);    animation-delay:  0s; }
+    .tl-magenta > .timeline-item::before { background: var(--magenta); animation-delay: -0.2s; }
+    .tl-cyan2   > .timeline-item::before { background: var(--cyan);    animation-delay: -0.4s; }
+    .tl-green   > .timeline-item::before { background: var(--green);   animation-delay: -0.6s; }
+    .tl-red     > .timeline-item::before { background: var(--red);     animation-delay: -0.8s; }
+    .tl-warm    > .timeline-item::before { background: var(--amber);   animation-delay: -1.0s; }
 
     @keyframes dot-pulse {
       0%, 100% { box-shadow: 0 0 4px var(--dot-color); }
