@@ -38,35 +38,45 @@
       z-index: 0;
     }
     .orb-1 {
-      width: 600px; height: 600px; background: var(--cyan);
+      width: 600px; height: 600px;
       top: -200px; left: -200px;
-      animation: orb-breathe-1 9s ease-in-out infinite;
+      animation: orb-pulse 0.8s ease-in-out infinite,
+                 orb-color-cycle 10.8s linear infinite;
     }
     .orb-2 {
-      width: 500px; height: 500px; background: var(--magenta);
+      width: 500px; height: 500px;
       bottom: -150px; right: -150px;
-      animation: orb-breathe-2 11s ease-in-out infinite;
+      animation: orb-pulse 0.8s ease-in-out infinite,
+                 orb-color-cycle 10.8s linear infinite;
+      animation-delay: 0s, -3.6s;
     }
-    .orb-3 {
-      width: 400px; height: 400px; background: var(--purple);
-      top: 40%; left: 50%; transform: translate(-50%,-50%);
-      animation: orb-breathe-3 14s ease-in-out infinite;
+    @keyframes orb-pulse {
+      0%, 100% { opacity: 0.09; scale: 1; }
+      50%       { opacity: 0.20; scale: 1.15; }
     }
 
-    @keyframes orb-breathe-1 {
-      0%, 100% { opacity: 0.09; transform: scale(1); }
-      50%       { opacity: 0.22; transform: scale(1.18); }
-    }
-    @keyframes orb-breathe-2 {
-      0%, 100% { opacity: 0.10; transform: scale(1); }
-      50%       { opacity: 0.24; transform: scale(1.22); }
-    }
-    @keyframes orb-breathe-3 {
-      0%, 100% { opacity: 0.07; transform: translate(-50%,-50%) scale(1); }
-      50%       { opacity: 0.16; transform: translate(-50%,-50%) scale(1.12); }
+    @keyframes orb-color-cycle {
+      0%     { background: var(--cyan); }
+      16.67% { background: var(--magenta); }
+      33.33% { background: var(--green); }
+      50%    { background: var(--amber); }
+      66.67% { background: var(--red); }
+      83.33% { background: var(--purple); }
+      100%   { background: var(--cyan); }
     }
 
     main { position: relative; z-index: 1; }
+
+    /* ── Content frame ── */
+    .content-frame {
+      max-width: 1040px;
+      margin: 2rem auto 3rem;
+      background: rgba(13,13,22,0.72);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+    }
 
     /* ── Nav ── */
     nav {
@@ -300,8 +310,7 @@
     footer a { color: var(--cyan); text-decoration: none; }
 
     @media (max-width: 600px) {
-      .pulse-demo { gap: 1.25rem; }
-      .bulb { width: 48px; height: 48px; }
+      .content-frame { margin: 1rem; border-radius: 12px; }
       nav { padding: 1rem; }
       .nav-links { gap: 1rem; }
     }
@@ -311,9 +320,9 @@
 
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
-<div class="orb orb-3"></div>
 
 <main>
+<div class="content-frame">
 
   <nav>
     <span class="nav-logo">hue-mcp</span>
@@ -530,6 +539,7 @@ setup({ <span class="key">default_group</span>: <span class="num">0</span>, <spa
     </div>
   </section>
 
+</div><!-- /.content-frame -->
 </main>
 
 <footer>
