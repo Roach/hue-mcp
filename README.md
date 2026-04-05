@@ -5,8 +5,8 @@
     .    _________________________    .
    *    |                         |    *
   .     |   * . * . * . * . * .   |     .
-  *     |  .   P H I L I P S   .  |     *
-  .     |   * . H U E . M C P  .  |     .
+  *     |  .   A I R G L O W   .  |     *
+  .     |   * . * . * . * . * .   |     .
   *     |  .   * . * . * . * .    |     *
    .    |_________________________|    .
     *                               *
@@ -14,9 +14,9 @@
         * . * . * . * . * . * . * .
 ```
 
-# hue-mcp
+# airglow
 
-**Make your lights think.** A Philips Hue MCP server + Claude Code hooks that animate your lights in real time based on what Claude is doing — cyan while thinking, magenta while working, green on success, red on permission prompts. Every session, every tool call, every moment of focus: visible.
+**Watch Claude think.** A Philips Hue MCP server + Claude Code hooks that animate your lights in real time based on what Claude is doing — cyan while thinking, magenta while working, green on success, red on permission prompts. Every session, every tool call, every moment of focus: visible.
 
 ## Prerequisites
 

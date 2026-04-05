@@ -1,7 +1,7 @@
 {
-  "name": "hue-mcp",
+  "name": "airglow",
   "version": "1.0.0",
-  "description": "Philips Hue MCP server — control lights to reflect agent/project status",
+  "description": "Philips Hue MCP server + Claude Code hooks — ambient light as a visual state indicator",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
