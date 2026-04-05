@@ -43,7 +43,7 @@ Drop this into `~/.claude/settings.json`:
   "mcpServers": {
     "hue": {
       "command": "node",
-      "args": ["/path/to/hue-mcp/dist/index.js"]
+      "args": ["/path/to/airglow/dist/index.js"]
     }
   }
 }
@@ -107,20 +107,20 @@ Generated automatically by `setup()`. To configure manually, add to your project
 {
   "hooks": {
     "UserPromptSubmit": [
-      { "hooks": [{ "type": "command", "command": "node /path/to/hue-mcp/hue-status.js thinking" }] }
+      { "hooks": [{ "type": "command", "command": "node /path/to/airglow/hue-status.js thinking" }] }
     ],
     "PreToolUse": [
-      { "hooks": [{ "type": "command", "command": "node /path/to/hue-mcp/hue-status.js working" }] }
+      { "hooks": [{ "type": "command", "command": "node /path/to/airglow/hue-status.js working" }] }
     ],
     "PostToolUse": [
-      { "matcher": "exit_plan_mode", "hooks": [{ "type": "command", "command": "node /path/to/hue-mcp/hue-status.js success" }] },
-      { "hooks": [{ "type": "command", "command": "node /path/to/hue-mcp/hue-status.js thinking" }] }
+      { "matcher": "exit_plan_mode", "hooks": [{ "type": "command", "command": "node /path/to/airglow/hue-status.js success" }] },
+      { "hooks": [{ "type": "command", "command": "node /path/to/airglow/hue-status.js thinking" }] }
     ],
     "Notification": [
-      { "matcher": "permission_prompt", "hooks": [{ "type": "command", "command": "node /path/to/hue-mcp/hue-status.js prompt" }] }
+      { "matcher": "permission_prompt", "hooks": [{ "type": "command", "command": "node /path/to/airglow/hue-status.js prompt" }] }
     ],
     "Stop": [
-      { "hooks": [{ "type": "command", "command": "node /path/to/hue-mcp/hue-status.js restore" }] }
+      { "hooks": [{ "type": "command", "command": "node /path/to/airglow/hue-status.js restore" }] }
     ]
   }
 }
@@ -146,9 +146,9 @@ To bind different projects to different lights without git conflicts, use `setti
 | `get_scenes` | List all saved scenes |
 | `get_sensors` | List motion sensors, temperature sensors, buttons, and remotes |
 | `get_dynamic_scenes` | List animated smart scenes — Candle, Fireplace, etc. (v2 API) |
-| `set_light` | Control a single light (on/off, brightness, color) |
-| `set_group` | Control all lights in a group simultaneously |
-| `set_effect` | Apply a native animated effect to lights — candle, fire, prism, sparkle, opal, glisten, cosmos |
+| `set_light` | Control a single light — on/off, brightness (0–100%), color temp (153–500 mired), RGB, HSL, flash alert, transition time |
+| `set_group` | Control all lights in a group simultaneously — same params as `set_light` |
+| `set_effect` | Apply a native animated effect to lights — candle, fire, prism, sparkle, opal, glisten, cosmos. Pass `no_effect` to clear. |
 | `set_status` | Set lights to a semantic status color |
 | `activate_scene` | Activate a saved scene by ID |
 | `activate_dynamic_scene` | Activate an animated smart scene with optional speed control |
