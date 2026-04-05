@@ -208,8 +208,8 @@
     .tl-cyan    > .timeline-item::before { background: var(--cyan);    animation-delay:  0s; }
     .tl-magenta > .timeline-item::before { background: var(--magenta); animation-delay: -0.25s; }
     .tl-cyan2   > .timeline-item::before { background: var(--cyan);    animation-delay: -0.5s; }
-    .tl-green   > .timeline-item::before { background: var(--green);   animation-delay: -0.75s; }
-    .tl-red     > .timeline-item::before { background: var(--red);     animation-delay: -1.0s; }
+    .tl-red     > .timeline-item::before { background: var(--red);     animation-delay: -0.75s; }
+    .tl-green   > .timeline-item::before { background: var(--green);   animation-delay: -1.0s; }
     .tl-warm    > .timeline-item::before { background: var(--amber);   animation-delay: -1.25s; }
 
     @keyframes dot-pulse {
@@ -353,8 +353,8 @@
     <h2>Every Claude session state, lit up</h2>
     <p>
       <code>hue-status.js</code> hooks into Claude Code's event system and drives a dedicated light
-      for each session. Bind different projects to different lights. Claude saves your light state
-      at session start and restores it when it stops.
+      for each session. Run multiple Claude sessions at once — each bound to a different light.
+      Claude saves your light state at session start and restores it when it stops.
     </p>
 
     <div class="timeline">
@@ -385,15 +385,6 @@
           <span class="tl-badge" style="background:rgba(0,212,255,0.12);color:var(--cyan)">thinking</span>
         </div>
       </div>
-      <div class="tl-green">
-        <div class="timeline-item">
-          <div class="tl-text">
-            <strong>Plan approved</strong>
-            <span>exit_plan_mode → solid green flash, then resumes</span>
-          </div>
-          <span class="tl-badge" style="background:rgba(0,255,136,0.12);color:var(--green)">success</span>
-        </div>
-      </div>
       <div class="tl-red">
         <div class="timeline-item">
           <div class="tl-text">
@@ -401,6 +392,15 @@
             <span>Notification → red pulse, 30s auto-expire → idle</span>
           </div>
           <span class="tl-badge" style="background:rgba(255,51,85,0.12);color:var(--red)">prompt</span>
+        </div>
+      </div>
+      <div class="tl-green">
+        <div class="timeline-item">
+          <div class="tl-text">
+            <strong>Plan approved</strong>
+            <span>exit_plan_mode → solid green flash, then resumes</span>
+          </div>
+          <span class="tl-badge" style="background:rgba(0,255,136,0.12);color:var(--green)">success</span>
         </div>
       </div>
       <div class="tl-warm">
