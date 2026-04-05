@@ -258,6 +258,10 @@
     .badge-v2  { background: rgba(255,0,204,0.1);  color: var(--magenta); }
     .badge-new { background: rgba(0,255,136,0.1);  color: var(--green); }
 
+    /* ── Install panels ── */
+    .install-panel { display: none; }
+    .install-panel.active { display: block; }
+
     /* ── Install block ── */
     .install-block {
       background: var(--surface);
@@ -495,34 +499,24 @@
 
     <div class="install-block">
       <div class="install-tabs">
-        <div class="install-tab active">1. Install</div>
-        <div class="install-tab">2. Configure</div>
-        <div class="install-tab">3. Setup</div>
+        <div class="install-tab active" data-tab="0">1. Install</div>
+        <div class="install-tab" data-tab="1">2. Configure</div>
+        <div class="install-tab" data-tab="2">3. Setup</div>
       </div>
-      <pre class="install-code"><span class="cm"># Clone and build</span>
+      <pre class="install-code install-panel active"><span class="cm"># Clone and build</span>
 git clone https://github.com/Roach/airglow.git
-cd hue-mcp
+cd airglow
 npm install &amp;&amp; npm run build</pre>
-    </div>
-
-    <br />
-
-    <div class="install-block">
-      <pre class="install-code"><span class="cm">// ~/.claude/settings.json</span>
+      <pre class="install-code install-panel"><span class="cm">// ~/.claude/settings.json</span>
 {
   <span class="key">"mcpServers"</span>: {
     <span class="key">"hue"</span>: {
       <span class="key">"command"</span>: <span class="str">"node"</span>,
-      <span class="key">"args"</span>: [<span class="str">"/path/to/hue-mcp/dist/index.js"</span>]
+      <span class="key">"args"</span>: [<span class="str">"/path/to/airglow/dist/index.js"</span>]
     }
   }
 }</pre>
-    </div>
-
-    <br />
-
-    <div class="install-block">
-      <pre class="install-code"><span class="cm"># In Claude, call:</span>
+      <pre class="install-code install-panel"><span class="cm"># In Claude, call:</span>
 setup()
 
 <span class="cm"># Bridge found → press link button → create_user → then:</span>
@@ -555,6 +549,14 @@ setup({ <span class="key">default_group</span>: <span class="num">0</span>, <spa
   }
   cycleOrb(document.querySelector('.orb-1'), 1100);
   cycleOrb(document.querySelector('.orb-2'), 1500);
+
+  document.querySelectorAll('.install-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var i = parseInt(this.getAttribute('data-tab'));
+      document.querySelectorAll('.install-tab').forEach(function(t, j) { t.classList.toggle('active', j === i); });
+      document.querySelectorAll('.install-panel').forEach(function(p, j) { p.classList.toggle('active', j === i); });
+    });
+  });
 })();
 </script>
 </body>
