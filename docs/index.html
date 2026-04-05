@@ -41,26 +41,26 @@
       width: 600px; height: 600px;
       top: -200px; left: -200px;
       animation: orb-pulse 0.88s ease-in-out infinite,
-                 orb-color-cycle 10.8s steps(3) infinite;
+                 orb-color-cycle 10.8s linear infinite;
       animation-delay: 0s, 0s;
     }
     .orb-2 {
       width: 500px; height: 500px;
       bottom: -150px; right: -150px;
       animation: orb-pulse 1.21s ease-in-out infinite,
-                 orb-color-cycle 10.8s steps(3) infinite;
+                 orb-color-cycle 10.8s linear infinite;
       animation-delay: -0.35s, -3.6s;
     }
     @keyframes orb-pulse {
-      0%, 100% { opacity: 0.09; scale: 1; }
-      50%       { opacity: 0.20; scale: 1.15; }
+      0%, 100% { opacity: 0.09; }
+      50%       { opacity: 0.22; }
     }
 
     @keyframes orb-color-cycle {
-      0%     { background: var(--cyan); }
-      33.33% { background: var(--magenta); }
-      66.67% { background: var(--red); }
-      100%   { background: var(--cyan); }
+      0%,     33.32% { background: var(--cyan); }
+      33.33%, 66.65% { background: var(--magenta); }
+      66.67%, 99.99% { background: var(--red); }
+      100%           { background: var(--cyan); }
     }
 
     main { position: relative; z-index: 1; }
