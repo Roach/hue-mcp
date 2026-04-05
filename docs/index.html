@@ -40,14 +40,14 @@
     .orb-1 {
       width: 600px; height: 600px;
       top: -200px; left: -200px;
-      animation: orb-pulse 0.88s ease-in-out infinite,
+      animation: orb-pulse 1.1s ease-in-out infinite,
                  orb-color-cycle 10.8s linear infinite;
       animation-delay: 0s, 0s;
     }
     .orb-2 {
       width: 500px; height: 500px;
       bottom: -150px; right: -150px;
-      animation: orb-pulse 1.21s ease-in-out infinite,
+      animation: orb-pulse 1.5s ease-in-out infinite,
                  orb-color-cycle 10.8s linear infinite;
       animation-delay: -0.35s, -3.6s;
     }
@@ -211,14 +211,14 @@
       height: 12px;
       border-radius: 50%;
       border: 2px solid var(--bg);
-      animation: dot-pulse 1.2s ease-in-out infinite;
+      animation: dot-pulse 1.5s ease-in-out infinite;
     }
     .tl-cyan    > .timeline-item::before { background: var(--cyan);    animation-delay:  0s; }
-    .tl-magenta > .timeline-item::before { background: var(--magenta); animation-delay: -0.2s; }
-    .tl-cyan2   > .timeline-item::before { background: var(--cyan);    animation-delay: -0.4s; }
-    .tl-green   > .timeline-item::before { background: var(--green);   animation-delay: -0.6s; }
-    .tl-red     > .timeline-item::before { background: var(--red);     animation-delay: -0.8s; }
-    .tl-warm    > .timeline-item::before { background: var(--amber);   animation-delay: -1.0s; }
+    .tl-magenta > .timeline-item::before { background: var(--magenta); animation-delay: -0.25s; }
+    .tl-cyan2   > .timeline-item::before { background: var(--cyan);    animation-delay: -0.5s; }
+    .tl-green   > .timeline-item::before { background: var(--green);   animation-delay: -0.75s; }
+    .tl-red     > .timeline-item::before { background: var(--red);     animation-delay: -1.0s; }
+    .tl-warm    > .timeline-item::before { background: var(--amber);   animation-delay: -1.25s; }
 
     @keyframes dot-pulse {
       0%, 100% { box-shadow: 0 0 4px var(--dot-color); }
