@@ -197,6 +197,13 @@
       padding: 1.25rem 0 1.25rem 1.5rem;
       position: relative;
     }
+    .tl-cyan    { --dot-color: var(--cyan); }
+    .tl-magenta { --dot-color: var(--magenta); }
+    .tl-cyan2   { --dot-color: var(--cyan); }
+    .tl-green   { --dot-color: var(--green); }
+    .tl-red     { --dot-color: var(--red); }
+    .tl-warm    { --dot-color: var(--amber); }
+
     .timeline-item::before {
       content: '';
       position: absolute;
@@ -206,21 +213,19 @@
       height: 12px;
       border-radius: 50%;
       border: 2px solid var(--bg);
+      animation: dot-pulse 1.2s ease-in-out infinite;
     }
-    .tl-cyan    .timeline-item::before, .tl-cyan    .dot { background: var(--cyan);    box-shadow: 0 0 8px var(--cyan); }
-    .tl-magenta .timeline-item::before, .tl-magenta .dot { background: var(--magenta); box-shadow: 0 0 8px var(--magenta); }
-    .tl-cyan2   .timeline-item::before, .tl-cyan2   .dot { background: var(--cyan);    box-shadow: 0 0 8px var(--cyan); }
-    .tl-green   .timeline-item::before, .tl-green   .dot { background: var(--green);   box-shadow: 0 0 8px var(--green); }
-    .tl-red     .timeline-item::before, .tl-red     .dot { background: var(--red);     box-shadow: 0 0 8px var(--red); }
-    .tl-warm    .timeline-item::before, .tl-warm    .dot { background: var(--amber);   box-shadow: 0 0 8px var(--amber); }
-    .timeline-item::before { background: inherit; }
-
     .tl-cyan    > .timeline-item::before { background: var(--cyan); }
     .tl-magenta > .timeline-item::before { background: var(--magenta); }
     .tl-cyan2   > .timeline-item::before { background: var(--cyan); }
     .tl-green   > .timeline-item::before { background: var(--green); }
     .tl-red     > .timeline-item::before { background: var(--red); }
     .tl-warm    > .timeline-item::before { background: var(--amber); }
+
+    @keyframes dot-pulse {
+      0%, 100% { box-shadow: 0 0 4px var(--dot-color); }
+      50%       { box-shadow: 0 0 10px var(--dot-color), 0 0 18px var(--dot-color); }
+    }
 
     .tl-text strong { display: block; font-size: 0.95rem; margin-bottom: 0.2rem; }
     .tl-text span   { font-size: 0.83rem; color: var(--muted); }
@@ -336,14 +341,14 @@
 
   <!-- Hero -->
   <div class="hero">
-    <div class="hero-badge">Philips Hue × Model Context Protocol</div>
+    <div class="hero-badge">Claude Code × Philips Hue</div>
     <h1>
-      <span class="word-hue">Lights</span><br>
-      <span class="word-tagline">that </span><span class="word-mcp">think</span>
+      <span class="word-hue">Claude</span><br>
+      <span class="word-tagline">in </span><span class="word-mcp">light</span>
     </h1>
     <p>
-      Your Hue lights animate in real time with every Claude session —
-      cyan while reasoning, magenta while working, green on success.
+      Watch Claude think. A Philips Hue MCP server + Claude Code hooks that animate
+      your lights in real time — cyan while reasoning, magenta while working, green on success.
       Every tool call, every permission prompt, every moment of focus: visible.
     </p>
     <div class="hero-cta">
@@ -355,11 +360,11 @@
   <!-- Session hooks section -->
   <section id="hooks">
     <div class="section-label">Claude Code Hooks</div>
-    <h2>Every session state, lit up</h2>
+    <h2>Every Claude session state, lit up</h2>
     <p>
-      <code>hue-status.js</code> hooks into Claude Code's event system and animates a dedicated light
-      for each session. Bind different projects to different lights. State is saved at session start
-      and restored when you stop.
+      <code>hue-status.js</code> hooks into Claude Code's event system and drives a dedicated light
+      for each session. Bind different projects to different lights. Claude saves your light state
+      at session start and restores it when it stops.
     </p>
 
     <div class="timeline">
